@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}{% block content %}
+<h2>Thêm thiết bị</h2>
+<form method='post'>
+    <div class='mb-3'><label>Tên thiết bị</label><input type='text' name='name' class='form-control' required></div>
+    <div class='mb-3'><label>Serial Number</label><input type='text' name='serial_number' class='form-control' required></div>
+    <div class='mb-3'><label>Vị trí lắp đặt</label><input type='text' name='location' class='form-control' required></div>
+    <div class='mb-3'><label>Thời gian bắt đầu</label><input type='date' name='start_date' class='form-control' required></div>
+    <div class='mb-3'><label>Tình trạng</label>
+        <select name='status' class='form-control' required>
+            <option value='Bình thường'>Bình thường</option>
+            <option value='Hỏng'>Hỏng</option>
+        </select></div>
+    <div class='mb-3'><label>Nguyên nhân hỏng</label><input type='text' name='issue_reason' class='form-control'></div>
+    <div class='mb-3'><label>Thời gian xử lý</label><input type='text' name='repair_time' class='form-control'></div>
+    <div class='mb-3'><label>Ghi chú</label><textarea name='notes' class='form-control'></textarea></div>
+    <button type='submit' class='btn btn-primary'>Thêm thiết bị</button>
+</form>{% endblock %}

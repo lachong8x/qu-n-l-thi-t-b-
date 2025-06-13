@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}{% block content %}
+<form method='get' class='mb-3 d-flex gap-2'>
+    <input type='text' name='query' value='{{ query }}' placeholder='Tìm tên hoặc serial...' class='form-control'>
+    <select name='status' class='form-control'>
+        <option value=''>-- Tình trạng --</option>
+        <option value='Bình thường' {% if status == 'Bình thường' %}selected{% endif %}>Bình thường</option>
+        <option value='Hỏng' {% if status == 'Hỏng' %}selected{% endif %}>Hỏng</option>
+    </select>
+    <button type='submit' class='btn btn-primary'>Lọc</button>
+</form>
+<a href='{{ url_for("add_device") }}' class='btn btn-success mb-3'>+ Thêm thiết bị</a>
+<table class='table table-bordered'>
+    <thead><tr>
+        <th>ID</th><th>Tên</th><th>Serial</th><th>Vị trí</th><th>Bắt đầu</th><th>Tình trạng</th><th>Nguyên nhân</th><th>Xử lý</th><th>Ghi chú</th><th>Hành động</th>
+    </tr></thead>
+    <tbody>{% for device in devices %}
+        <tr>
+            {% for field in device[:-1] %}<td>{{ field }}</td>{% endfor %}
+            <td>
+                <a href='{{ url_for("edit_device", device_id=device[0]) }}' class='btn btn-sm btn-warning'>Sửa</a>
+                <a href='{{ url_for("delete_device", device_id=device[0]) }}' class='btn btn-sm btn-danger' onclick='return confirm("Bạn chắc chắn muốn xoá?")'>Xoá</a>
+            </td>
+        </tr>{% endfor %}
+    </tbody>
+</table>{% endblock %}

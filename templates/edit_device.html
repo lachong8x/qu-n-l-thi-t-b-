@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}{% block content %}
+<h2>Sửa thiết bị</h2>
+<form method='post'>
+{% set labels = ['Tên thiết bị', 'Serial Number', 'Vị trí lắp đặt', 'Thời gian bắt đầu', 'Tình trạng', 'Nguyên nhân hỏng', 'Thời gian xử lý', 'Ghi chú'] %}
+{% set fields = ['name', 'serial_number', 'location', 'start_date', 'status', 'issue_reason', 'repair_time', 'notes'] %}
+{% for i in range(0, 8) %}
+<div class='mb-3'><label>{{ labels[i] }}</label>
+    {% if fields[i] == 'status' %}
+    <select name='status' class='form-control'>
+        <option value='Bình thường' {% if device[5] == 'Bình thường' %}selected{% endif %}>Bình thường</option>
+        <option value='Hỏng' {% if device[5] == 'Hỏng' %}selected{% endif %}>Hỏng</option>
+    </select>
+    {% elif fields[i] == 'notes' %}
+    <textarea name='notes' class='form-control'>{{ device[8] }}</textarea>
+    {% else %}
+    <input type='text' name='{{ fields[i] }}' class='form-control' value='{{ device[i+1] }}'>
+    {% endif %}
+</div>
+{% endfor %}
+<button type='submit' class='btn btn-primary'>Cập nhật</button>
+<a href='/' class='btn btn-secondary'>Quay lại</a>
+</form>{% endblock %}
