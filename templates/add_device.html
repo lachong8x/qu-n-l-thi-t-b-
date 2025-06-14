@@ -15,3 +15,20 @@
     <div class='mb-3'><label>Ghi chú</label><textarea name='notes' class='form-control'></textarea></div>
     <button type='submit' class='btn btn-primary'>Thêm thiết bị</button>
 </form>{% endblock %}
+<script>
+  const statusSelect = document.querySelector("select[name='status']");
+  const incidentFields = document.getElementById("incident-fields");
+
+  function toggleIncidentFields() {
+    if (statusSelect.value === "Sự cố") {
+      incidentFields.style.display = "block";
+    } else {
+      incidentFields.style.display = "none";
+    }
+  }
+
+  statusSelect.addEventListener("change", toggleIncidentFields);
+
+  // Gọi ngay khi trang tải (phòng trường hợp status được chọn sẵn)
+  window.onload = toggleIncidentFields;
+</script>
