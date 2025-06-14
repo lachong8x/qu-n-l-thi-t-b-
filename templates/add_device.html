@@ -6,6 +6,28 @@
     <div class='mb-3'><label>Vị trí lắp đặt</label><input type='text' name='location' class='form-control' required></div>
     <div class='mb-3'><label>Thời gian bắt đầu</label><input type='date' name='start_date' class='form-control' required></div>
     <div class='mb-3'><label>Tình trạng</label>
+        <div id="incident-fields" style="display:none;">
+  <div class='mb-3'>
+    <label>Nguyên nhân sự cố</label>
+    <input type='text' name='issue_reason' class='form-control'>
+  </div>
+  <div class='mb-3'>
+    <label>Thời gian xảy ra sự cố</label>
+    <input type='datetime-local' name='incident_start' class='form-control'>
+  </div>
+  <div class='mb-3'>
+    <label>Phương án thực hiện</label>
+    <input type='text' name='solution' class='form-control'>
+  </div>
+  <div class='mb-3'>
+    <label>Tiến độ xử lý</label>
+    <input type='text' name='progress' class='form-control'>
+  </div>
+  <div class='mb-3'>
+    <label>Thời gian kết thúc</label>
+    <input type='datetime-local' name='incident_end' class='form-control'>
+  </div>
+</div>
         <select name='status' class='form-control' required>
             <option value='Bình thường'>Bình thường</option>
             <option value='Hỏng'>Hỏng</option>
