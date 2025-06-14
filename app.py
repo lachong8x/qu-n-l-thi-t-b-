@@ -9,18 +9,23 @@ def init_db():
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute('''
-        CREATE TABLE IF NOT EXISTS devices (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            serial_number TEXT,
-            location TEXT,
-            start_date TEXT,
-            status TEXT,
-            issue_reason TEXT,
-            repair_time TEXT,
-            notes TEXT
-        )
-    ''')
+    CREATE TABLE IF NOT EXISTS devices (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        serial_number TEXT,
+        location TEXT,
+        start_date TEXT,
+        status TEXT,
+        issue_reason TEXT,
+        repair_time TEXT,
+        notes TEXT,
+        incident_start TEXT,
+        solution TEXT,
+        progress TEXT,
+        incident_end TEXT
+    )
+''')
+
     conn.commit()
     conn.close()
 
