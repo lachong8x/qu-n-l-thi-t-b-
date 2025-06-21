@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Thêm thiết bị{% endblock %}
+{% block content %}
+<h2>Thêm thiết bị</h2>
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Tên thiết bị</label>
+        <input type="text" name="name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Hệ thống</label>
+        <input type="text" name="system" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Trạng thái</label>
+        <select name="status" class="form-select">
+            <option value="Bình thường">Bình thường</option>
+            <option value="Sự cố">Sự cố</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Lưu</button>
+</form>
+{% endblock %}
