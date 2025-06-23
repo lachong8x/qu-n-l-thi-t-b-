@@ -1,6 +1,11 @@
-{% extends "layout.html" %}
-{% block title %}Trang chủ{% endblock %}
-{% block content %}
-<h1>Chào mừng đến hệ thống quản lý thiết bị</h1>
-<a class="btn btn-primary" href="/login">Đăng nhập</a>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head><title>Trang chủ</title></head>
+<body>
+    {% if user %}
+        <h1>Chào mừng {{ user }}!</h1>
+    {% else %}
+        <h1>Chào mừng khách!</h1>
+    {% endif %}
+</body>
+</html>
